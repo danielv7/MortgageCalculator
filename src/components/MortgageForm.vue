@@ -17,7 +17,13 @@
        :class="{ 'has-error': submitting && invalidTerm }"
        v-model="mortgageNum.term" 
        @focus="clearStatus"
-       
+       />
+       <label>Interest Rate</label>
+       <input 
+       type="text"
+       :class="{ 'has-error': submitting && invalidRate }"
+       v-model="mortgageNum.rate" 
+       @focus="clearStatus"
        />
 
        <p v-if="error && submitting" class="error-message">
@@ -28,7 +34,7 @@
        </p>
 
       <button>Calculate Payment</button>
-      
+
     </form>
 
 
@@ -46,6 +52,7 @@
         mortgageNum: {
           loan: '',
           term: '',
+          rate: '',
         },
       }
     },
@@ -54,7 +61,7 @@
           this.submitting = true
           this.clearStatus()
 
-          if (this.invalidLoan || this.invalidTerm) {
+          if (this.invalidLoan || this.invalidTerm || this.invalidRate) {
             this.error = true
             return
           }
@@ -63,6 +70,7 @@
           this.mortgageNum = {
             loan: '',
             term: '',
+            rate: '',
           }
           this.error = false
           this.success = true
@@ -77,10 +85,12 @@
       invalidLoan() {
         return this.mortgageNum.loan === ''
         },
-
       invalidTerm() {
         return this.mortgageNum.term === ''
         },
+      invalidRate() {
+        return this.mortgageNum.rate === ''
+      },
 },
 
     

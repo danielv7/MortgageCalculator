@@ -3,12 +3,14 @@
     id="app" 
     class="small-container"
   >
-    <h1>Mortgage Table</h1>
+    <h1>Mortgage Detials</h1>
 
-    <mortgage-form @calc:mortgage="calcMortgage" />
+    <mortgage-form 
+      @calc:mortgage="calcMortgage" 
+      />
     <mortgage-table
       :mortgageNums="mortgageNums"
-    />
+      />
 
 
   </div>
@@ -32,16 +34,19 @@ export default {
           id: 1,
           loan: '300,000',
           term: '30 years',
+          rate: '3.5%',
         },
         {
           id: 2,
           loan: '420,000',
           term: '15 years',
+          rate: '2.5%',
         },
         {
           id: 3,
           loan: '600,000',
           term: '30 years',
+          rate: '2.8%',
         },
       ],
     }

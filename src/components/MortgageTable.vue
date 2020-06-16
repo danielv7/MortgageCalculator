@@ -6,6 +6,7 @@
             <tr>
                 <th>Loan</th>
                 <th>Term</th>
+                <th>Rate</th>
             </tr>
       </thead>
       
@@ -13,6 +14,7 @@
         <tr v-for="mortgageNum in mortgageNums" :key="mortgageNum.id">
           <td>{{ mortgageNum.loan }}</td>
           <td>{{ mortgageNum.term }}</td>
+          <td>{{ mortgageNum.rate }}</td>
         </tr>
       </tbody>
     </table>
