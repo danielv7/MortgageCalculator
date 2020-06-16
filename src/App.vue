@@ -1,28 +1,72 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div 
+    id="app" 
+    class="small-container"
+  >
+    <h1>Mortgage Table</h1>
+
+    <mortgage-form @calc:mortgage="calcMortgage" />
+    <mortgage-table
+      :mortgageNums="mortgageNums"
+    />
+
+
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import MortgageTable from '@/components/MortgageTable.vue'
+import MortgageForm from '@/components/MortgageForm.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    MortgageTable,
+    MortgageForm,
+  },
+  data() {
+    return {
+      mortgageNums: [
+        {
+          id: 1,
+          loan: '300,000',
+          term: '30 years',
+        },
+        {
+          id: 2,
+          loan: '420,000',
+          term: '15 years',
+        },
+        {
+          id: 3,
+          loan: '600,000',
+          term: '30 years',
+        },
+      ],
+    }
+  },
+  methods: {
+    calcMortgage(mortgageNum) {
+      const lastId = this.mortgageNums.length > 0 ? this.mortgageNums[this.mortgageNums.length - 1].id: 0;
+      const id = lastId + 1;
+      const newMortgage = { ...mortgageNum, id };
+
+      this.mortgageNums = [...this.mortgageNums, newMortgage];
+    },
+  },
+  
 }
+
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+button {
+  background: #009435;
+  border: 1px solid #009435;
+}
+
+.small-container {
+  max-width: 680px;
 }
 </style>
