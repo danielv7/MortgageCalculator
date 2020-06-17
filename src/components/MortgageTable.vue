@@ -1,6 +1,13 @@
 <template>
   <div id="mortgage-table">
-    <table>
+     <p
+      v-if="mortgageNums.loan === null"
+      class="empty-table"
+    >
+    </p>
+
+
+    <table v-else>
 
       <thead>
         <tr>

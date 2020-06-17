@@ -5,7 +5,7 @@
     <form @submit.prevent="handleSubmit">
       <label>Loan Amount</label>
        <input
-       type="text"
+       type="number"
        :class="{ 'has-error': submitting && invalidLoan}"
        v-model="mortgageNum.loan" 
        @focus="clearStatus"
@@ -13,7 +13,7 @@
        />
       <label>Loan Term</label>
        <input 
-       type="text"
+       type="number"
        :class="{ 'has-error': submitting && invalidTerm }"
        v-model="mortgageNum.term" 
        @focus="clearStatus"
@@ -52,7 +52,7 @@
         mortgageNum: {
           loan: '',
           term: '',
-          rate: '',
+          rate: '' ,
         },
       }
     },
@@ -70,7 +70,7 @@
           this.mortgageNum = {
             loan: '',
             term: '',
-            rate: '',
+            rate: '', 
           }
           this.error = false
           this.success = true
