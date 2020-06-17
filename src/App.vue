@@ -10,6 +10,7 @@
       />
     <mortgage-table
       :mortgageNums="mortgageNums"
+      :monthlyPayment="monthlyPayment"
       />
 
 
@@ -29,37 +30,23 @@ export default {
   },
   data() {
     return {
-      mortgageNums: [
-        {
-          id: 1,
-          loan: '300,000',
-          term: '30 years',
-          rate: '3.5%',
-        },
-        {
-          id: 2,
-          loan: '420,000',
-          term: '15 years',
-          rate: '2.5%',
-        },
-        {
-          id: 3,
-          loan: '600,000',
-          term: '30 years',
-          rate: '2.8%',
-        },
-      ],
+      mortgageNums: {loan: null, term: null, rate: null},
+      monthlyPayment: null,
     }
   },
   methods: {
     calcMortgage(mortgageNum) {
-      const lastId = this.mortgageNums.length > 0 ? this.mortgageNums[this.mortgageNums.length - 1].id: 0;
-      const id = lastId + 1;
-      const newMortgage = { ...mortgageNum, id };
+      this.mortgageNums.loan = mortgageNum.loan
+      this.mortgageNums.term = mortgageNum.term
+      this.mortgageNums.rate = mortgageNum.rate
 
-      this.mortgageNums = [...this.mortgageNums, newMortgage];
+      this.monthlyPayment = parseInt(mortgageNum.loan) + parseInt(mortgageNum.term)
+      
+
+
     },
   },
+  
   
 }
 

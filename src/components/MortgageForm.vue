@@ -30,7 +30,7 @@
          ❗Please fill out all required fields
        </p>
        <p v-if="success" class="success-message">
-         ✅ Employee successfully added
+         ✅ Mortgage Calculated
        </p>
 
       <button>Calculate Payment</button>

@@ -2,21 +2,36 @@
   <div id="mortgage-table">
     <table>
 
-        <thead>
-            <tr>
-                <th>Loan</th>
-                <th>Term</th>
-                <th>Rate</th>
-            </tr>
+      <thead>
+        <tr>
+          <th>Loan</th>
+          <th>Term</th>
+          <th>Rate</th>
+        </tr>
+        
       </thead>
       
       <tbody>
-        <tr v-for="mortgageNum in mortgageNums" :key="mortgageNum.id">
-          <td>{{ mortgageNum.loan }}</td>
-          <td>{{ mortgageNum.term }}</td>
-          <td>{{ mortgageNum.rate }}</td>
+        <tr>
+          <td>{{ mortgageNums.loan }}</td>
+          <td>{{ mortgageNums.term }}</td>
+          <td>{{ mortgageNums.rate }}</td>
         </tr>
       </tbody>
+
+      <tr>
+        <th>Monthly Payment</th>
+      </tr>
+
+      <tbody>
+        <tr>{{monthlyPayment}}</tr>
+      </tbody>
+
+
+      
+
+
+
     </table>
   </div>
 </template>
@@ -25,7 +40,8 @@
   export default {
     name: 'mortgage-table',
     props: {
-        mortgageNums: Array
+        mortgageNums: Object,
+        monthlyPayment: Number,
     },
   }
 </script>
