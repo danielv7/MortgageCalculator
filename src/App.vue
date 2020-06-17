@@ -40,9 +40,19 @@ export default {
       this.mortgageNums.term = mortgageNum.term
       this.mortgageNums.rate = mortgageNum.rate
 
-      this.monthlyPayment = parseInt(mortgageNum.loan) + parseInt(mortgageNum.term)
-      
 
+      const p = parseInt(mortgageNum.loan)
+      const n = (parseInt(mortgageNum.term)* 12)
+      const r = (parseFloat(mortgageNum.rate)/12)
+
+
+      this.monthlyPayment = p*(r*((1+r)**n))/(((1+r)**n)-1)
+      this.monthlyPayment = Math.round((this.monthlyPayment+ Number.EPSILON) * 100) / 100
+
+
+      //Calculating Total Interest
+      //totalInterest = (monthlyPayment * (term * 12)) - (loan)
+      //console.log(totalInterest)
 
     },
   },
