@@ -43,11 +43,9 @@ export default {
       this.mortgageNums.rate = (this.mortgageNums.rate)*(100)
       this.mortgageNums.rate = Math.round((this.mortgageNums.rate+ Number.EPSILON) * 100) / 100
 
-
       const p = parseInt(mortgageNum.loan)
       const n = (parseInt(mortgageNum.term)* 12)
       const r = (parseFloat(mortgageNum.rate)/12)
-
 
       this.monthlyPayment = p*(r*((1+r)**n))/(((1+r)**n)-1)
       this.monthlyPayment = Math.round((this.monthlyPayment+ Number.EPSILON) * 100) / 100
@@ -69,6 +67,12 @@ export default {
 button {
   background: #38d8a3;
   border: 1px solid #38d8a3;
+  
+  
+}
+button:hover {
+  background-color: rgb(91, 97, 92); 
+  border: 1px solid rgb(91, 97, 92);
   
 }
 

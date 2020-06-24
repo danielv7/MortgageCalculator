@@ -12,7 +12,7 @@
       
       <h4>${{monthlyPayment}} per month </h4>
       <hr>
-      <p>{{mortgageNums.loan}} loan at {{mortgageNums.term}} year fixed, {{mortgageNums.rate}} % interest</p>
+      <p>{{mortgageNums.loan}} loan at {{mortgageNums.term}} year fixed, {{mortgageNums.rate}}% interest</p>
 
 
     </table>
