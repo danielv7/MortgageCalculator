@@ -9,37 +9,14 @@
 
     <table v-else>
 
-      <thead>
-        <tr>
-          <th>Loan</th>
-          <th>Term</th>
-          <th>Rate</th>
-        </tr>
-        
-      </thead>
       
-      <tbody>
-        <tr>
-          <td>{{ mortgageNums.loan }}</td>
-          <td>{{ mortgageNums.term }}</td>
-          <td>{{ mortgageNums.rate }}</td>
-        </tr>
-      </tbody>
-
-      <tr>
-        <th>Monthly Payment</th>
-      </tr>
-
-      <tbody>
-        <tr>{{monthlyPayment}}</tr>
-      </tbody>
-
-
-      
-
+      <h4>${{monthlyPayment}} per month </h4>
+      <hr>
+      <p>{{mortgageNums.loan}} loan at {{mortgageNums.term}} year fixed, {{mortgageNums.rate}} % interest</p>
 
 
     </table>
+    
   </div>
 </template>
 

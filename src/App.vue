@@ -37,8 +37,11 @@ export default {
   methods: {
     calcMortgage(mortgageNum) {
       this.mortgageNums.loan = mortgageNum.loan
+      this.mortgageNums.loan = this.mortgageNums.loan.split(/(?=(?:\d{3})+$)/).join(",");
       this.mortgageNums.term = mortgageNum.term
-      this.mortgageNums.rate = mortgageNum.rate
+      this.mortgageNums.rate = parseFloat(mortgageNum.rate)
+      this.mortgageNums.rate = (this.mortgageNums.rate)*(100)
+      this.mortgageNums.rate = Math.round((this.mortgageNums.rate+ Number.EPSILON) * 100) / 100
 
 
       const p = parseInt(mortgageNum.loan)
@@ -64,11 +67,12 @@ export default {
 
 <style>
 button {
-  background: #009435;
-  border: 1px solid #009435;
+  background: #38d8a3;
+  border: 1px solid #38d8a3;
+  
 }
 
 .small-container {
-  max-width: 680px;
+  max-width: 600px;
 }
 </style>
